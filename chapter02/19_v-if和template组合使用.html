@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <template id="my-app">
+        <template v-if="isShow">
+            <h3>v-if控制多个h3标签显示、隐藏</h3>
+            <h3>v-if控制多个h3标签显示、隐藏</h3>
+            <h3>v-if控制多个h3标签显示、隐藏</h3>
+            <h3>v-if控制多个h3标签显示、隐藏</h3>
+        </template>
+        <template v-else>
+            <h4>v-if控制多个h4标签显示、隐藏</h4>
+            <h4>v-if控制多个h4标签显示、隐藏</h4>
+            <h4>v-if控制多个h4标签显示、隐藏</h4>
+            <h4>v-if控制多个h4标签显示、隐藏</h4>
+        </template>
+        <button @click="toggle">切换显示与隐藏</button>
+    </template>
+    <script src="./js/vue.js"></script>
+    <script>
+        const App = {
+            template: '#my-app', 
+            data: function () {
+                return {
+                    isShow: true
+                }
+            },
+            methods: {
+                toggle(){
+                    this.isShow = !this.isShow;
+                }
+            }
+
+        }
+         Vue.createApp(App).mount('#app');
+    </script>
+</body>
+</html>
