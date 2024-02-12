@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <template id="my-app">
+        <div>
+            <h4>1、电影列表遍历数组</h4>
+            <ul>
+                <li v-for="movie in movies">{{movie}}</li>
+            </ul>
+            <h4>2、电影列表遍历数组</h4>
+            <ul>
+                <li v-for="(movie, index) in movies">{{index+1}}-{{movie}}</li>
+            </ul>
+        </div>
+    </template>
+    <script src="./js/vue.js"></script>
+    <script>
+        const App = {
+            template: '#my-app', 
+            data: function () {
+                return {
+                    message: 'Hello World',
+                    movies: [
+                        "星际穿越",
+                        "盗梦空间",
+                        "少年派",
+                        "宰相刘罗锅"
+                    ]
+                }
+            },
+            methods: {
+            
+            }
+
+        }
+         Vue.createApp(App).mount('#app');
+    </script>
+</body>
+</html>
