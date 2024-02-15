@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <template id="my-app">
+        <div>
+            <!-- 1.第一种：methods的实现 -->
+            <h4>{{getFullName()}}</h4>
+            <h4>{{getFullName()}}</h4>
+            <h4>{{getFullName()}}</h4>
+            <!-- 2.第二种：计算属性computed的实现 -->
+            <h4>{{ fullName }}</h4>
+            <h4>{{ fullName }}</h4>
+            <h4>{{ fullName }}</h4>
+            <button @click="changeFirstName">修改firstName</button>
+        </div>
+    </template>
+    <script src="./js/vue.js"></script>
+    <script>
+        const App = {
+            template: '#my-app', 
+            data: function () {
+                return {
+                    message: 'Hello World',
+                    firstName: "Kode",
+                    lastName: "Bryant",
+                    score: 80
+                }
+            },
+            computed: {
+                fullName(){
+                    return this.firstName + " " + this.lastName
+                }
+            },
+            methods: {
+                getFullName(){
+                    return this.firstName + " " + this.lastName
+                },
+                changeFirstName(){
+                    this.firstName = "Coder"
+                }
+            }
+
+        }
+         Vue.createApp(App).mount('#app');
+    </script>
+</body>
+</html>
