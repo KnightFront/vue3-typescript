@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/bignumber.js/9.1.2/bignumber.js"></script>
+</head>
+
+<body>
+    <script>
+        function toFixed(num, s) {
+            var times = Math.pow(10, s)
+            // 0.5 为了舍入
+            var des = num * times + 0.5
+            // 去除小数
+            des = parseInt(des, 10) / times
+            return des + ''
+        }
+        var x = new BigNumber(3166555.3)
+        var y = new BigNumber(1.06)
+        console.log(toFixed(x.div(1.06), 10))
+        // x.div(7).dp(3).toNumber() // 42.857
+    </script>
+</body>
+
+</html>
