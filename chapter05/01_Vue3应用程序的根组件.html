@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .comp-b,.comp-a{
+            border: 1px solid #999;
+            margin: 3px ;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    <template id="my-app">
+        <div class="comp-b">
+           <input type="text" v-model="message"/>
+           <h4>{{message}}</h4>
+        </div>
+        <div class="comp-a">
+            <h4>{{title}}</h4>
+            <h4>{{desc}}</h4>
+            <button @click="handleClick">按钮点击</button>
+        </div>
+    </template>
+    <script src="./js/vue.js"></script>
+    <script>
+        const App = {
+            template: '#my-app', 
+            data: function () {
+                return {
+                    message: 'Hello World',
+                    title:"我是标题",
+                    desc: "内容显示区域"
+                }
+            },
+            methods: {
+                handleClick(){
+                    console.log("按钮点击")
+                }
+            }
+
+        }
+         Vue.createApp(App).mount('#app');
+    </script>
+</body>
+</html>

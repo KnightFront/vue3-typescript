@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <template id="my-app">
+        <div class="comps-b">
+            <input type="text" v-model="message">
+            {{message}}
+        </div>
+
+        <!-- 使用全局组件 -->
+        <component-a></component-a>
+    </template>
+    <!-- 编写component-a -->
+    <template id="component-a">
+        <div class="comps-a">
+            <h4>{{ title }}</h4>
+            <p>{{ desc }}</p>
+            <button @click="btnClick">按钮单击</button>
+        </div>
+    </template>
+    <script src="./js/vue.js"></script>
+    <script>
+        const ComponentsA = {
+            template: '#component-a',
+            data() {
+                return {
+                    title: '组件A',
+                    desc: '组件A的描述',
+                }
+            },
+            methods: {
+                btnClick: function () {
+                    alert('按钮单击');
+                }
+            }
+        }
+        const App = {
+            template: '#my-app',
+            components: {
+                'component-a': ComponentsA,
+            },
+            data: function () {
+                return {
+                    message: 'Hello World',
+                }
+            },
+            methods: {
+
+            }
+        }
+        // 创建一个Vue实例
+        const app = Vue.createApp(App);
+        app.component('component-a', {
+            template: '#component-a',
+            data() {
+                return {
+                    title: '组件A',
+                    desc: '组件A的描述',
+                }
+            },
+            methods: {
+                btnClick: function () {
+                    alert('按钮单击');
+                }
+            }
+        });
+        app.mount('#app');
+    </script>
+</body>
+
+</html>
